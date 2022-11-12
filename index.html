@@ -1,13 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-    <script src="/assets/js/script.js" ></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header class="container-fluid text-center text-white bg-dark p-3">
+      <h1>Weather Dashboard</h1>
+    </header>
+    <main class="container-fluid">
+      <div class="row">
+        <aside class="col-lg-3">
+          <h2>Search for a City:</h2>
+          <form id="form-sbt">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="user-input"
+                aria-describedby="userInput"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%">
+              Search
+            </button>
+          </form>
+          <hr />
+          <section class="col">
+            <div class="col">
+              <button
+                type="button"
+                class="btn btn-dark mb-2"
+                style="width: 100%"
+              >
+                Miami
+              </button>
+              <button
+                type="button"
+                class="btn btn-dark mb-2"
+                style="width: 100%"
+                value="Miami"
+              >
+                Cheyenne
+              </button>
+              <button
+                type="button"
+                class="btn btn-dark mb-2"
+                style="width: 100%"
+                value="Cheyenne"
+              >
+                San Diego
+              </button>
+              <button
+                type="button"
+                class="btn btn-dark mb-2"
+                style="width: 100%"
+                value="San Diego"
+              >
+                Phoenix
+              </button>
+              <button
+                type="button"
+                class="btn btn-dark mb-2"
+                style="width: 100%"
+                value="Phoenix"
+              >
+                Chicago
+              </button>
+              <button
+                type="button"
+                class="btn btn-dark mb-2"
+                style="width: 100%"
+                value="Chicago"
+              >
+                Dallas
+              </button>
+              <button
+                type="button"
+                class="btn btn-dark mb-2"
+                style="width: 100%"
+                value="Dallas"
+              >
+                Charlotte
+              </button>
+            </div>
+          </section>
+        </aside>
+        <section class="col-lg-7" id="current-forecast"></section>
+      </div>
+    </main>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
+
+<!-- user will type into input field and then click the search 
+---need to capture the input value
+---need an event listener on the search button
+
+once the user clicks search i need to display the current forecast and the 5 day forecast
+
+create a button with the citys name
+
+when user clicks, will show the relevant cities Weather
+
+store the weather results in local storage 
+
+
+
+
+
+
+
+-->
