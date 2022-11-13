@@ -31,7 +31,11 @@
               />
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%">
+            <button
+              type="submit"
+              class="btn btn-primary btnSearch"
+              style="width: 100%"
+            >
               Search
             </button>
           </form>
@@ -39,66 +43,141 @@
           <section class="col">
             <div class="col">
               <button
+                id="miami"
                 type="button"
-                class="btn btn-dark mb-2"
+                class="preSet btn btn-dark mb-2"
                 style="width: 100%"
+                value="Miami"
               >
                 Miami
               </button>
               <button
+                id="cheyenne"
                 type="button"
-                class="btn btn-dark mb-2"
+                class="preSet btn btn-dark mb-2"
                 style="width: 100%"
-                value="Miami"
+                value="Cheyenne"
               >
                 Cheyenne
               </button>
               <button
+                id="sanDiego"
                 type="button"
-                class="btn btn-dark mb-2"
+                class="preSet btn btn-dark mb-2"
                 style="width: 100%"
-                value="Cheyenne"
+                value="San Diego"
               >
                 San Diego
               </button>
               <button
+                id="phoenix"
                 type="button"
-                class="btn btn-dark mb-2"
+                class="preSet btn btn-dark mb-2"
                 style="width: 100%"
-                value="San Diego"
+                value="Phoenix"
               >
                 Phoenix
               </button>
               <button
+                id="chicago"
                 type="button"
-                class="btn btn-dark mb-2"
+                class="preSet btn btn-dark mb-2"
                 style="width: 100%"
-                value="Phoenix"
+                value="Chicago"
               >
                 Chicago
               </button>
               <button
+                id="dallas"
                 type="button"
-                class="btn btn-dark mb-2"
+                class="preSet btn btn-dark mb-2"
                 style="width: 100%"
-                value="Chicago"
+                value="Dallas"
               >
                 Dallas
               </button>
               <button
+                id="charlotte"
                 type="button"
-                class="btn btn-dark mb-2"
+                class="preSet btn btn-dark mb-2"
                 style="width: 100%"
-                value="Dallas"
+                value="Charlotte"
               >
                 Charlotte
               </button>
             </div>
           </section>
         </aside>
-        <section class="col-lg-7" id="current-forecast"></section>
+
+        <section class="col-lg-7" id="current-forecast">
+          <div class="card m-3" style="width: 22rem">
+            <div class="card-body">
+              <h3 id="cityCurrent"></h3>
+              <img id="emojiCurrent" src="" alt="weather emoji" />
+              <h6 id="tempCurrent">Card title</h6>
+              <h6 id="windCurrent">Card title</h6>
+              <h6 id="humidityCurrent">Card title</h6>
+            </div>
+          </div>
+          <section>
+            <div class="row justify-content-around">
+              <h3 class="subHeader">5-Day Forecast:</h3>
+              <div class="card" style="width: 12rem">
+                <div class="card-body">
+                  <h5 id="dateFive">(11/12/2022)</h5>
+                  <img id="emojiCurrent" src="" alt="weather emoji" />
+                  <h6 id="tempFive">Card title</h6>
+                  <h6 id="windFive">Card title</h6>
+                  <h6 id="humidityFive">Card title</h6>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem">
+                <div class="card-body">
+                  <h3 id="cityFive"></h3>
+                  <img id="emojiFive" src="" alt="weather emoji" />
+                  <h6 id="tempFive">Card title</h6>
+                  <h6 id="windFive">Card title</h6>
+                  <h6 id="humidityFive">Card title</h6>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem">
+                <div class="card-body">
+                  <h3 id="cityFive"></h3>
+                  <img id="emojiFive" src="" alt="weather emoji" />
+                  <h6 id="tempFive">Card title</h6>
+                  <h6 id="windFive">Card title</h6>
+                  <h6 id="humidityFive">Card title</h6>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem">
+                <div class="card-body">
+                  <h3 id="cityFive"></h3>
+                  <img id="emojiFive" src="" alt="weather emoji" />
+                  <h6 id="tempFive">Card title</h6>
+                  <h6 id="windFive">Card title</h6>
+                  <h6 id="humidityFive">Card title</h6>
+                </div>
+              </div>
+              <div class="card" style="width: 12rem">
+                <div class="card-body">
+                  <h3 id="cityFive"></h3>
+                  <img id="emojiFive" src="" alt="weather emoji" />
+                  <h6 id="tempFive">Card title</h6>
+                  <h6 id="windFive">Card title</h6>
+                  <h6 id="humidityFive">Card title</h6>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
       </div>
     </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>

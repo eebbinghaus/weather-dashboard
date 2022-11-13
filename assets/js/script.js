@@ -3,14 +3,19 @@
 var userInput = document.getElementById("user-input");
 var userForm = document.getElementById("form-sbt");
 var currentForecast = document.getElementById("current-forecast");
-var apiKey = "3325fbfe11bdb5b671f98630304b064f";
-
+var preSet = document.getElementsByClassName("preSet");
+var apiKey = "e757412b6a4d63da3a66b29d23f46628";
+var cityCurrent = document.getElementById("cityCurrent");
+var tempCurrent = document.getElementById("tempCurrent");
+var windCurrent = document.getElementById("windCurrent");
+var humidityCurrent = document.getElementById("humidityCurrent");
+var emojiCurrent = document.getElementById("emojiCurrent");
 // Functions
 function fetchCoordinates(input) {
   var apiCall =
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
     input +
-    "&appid=3325fbfe11bdb5b671f98630304b064f";
+    "&appid=e757412b6a4d63da3a66b29d23f46628";
 
   fetch(apiCall)
     .then(function (response) {
@@ -25,6 +30,7 @@ function fetchCoordinates(input) {
       console.log(lon);
       console.log(city);
       fetchWeather(lat, lon);
+      fiveDay(lat, lon);
 
       var date = new Date();
       var day = date.getDate();
@@ -34,9 +40,7 @@ function fetchCoordinates(input) {
       var fullDate = "(" + month + "/" + day + "/" + year + ")";
       console.log(fullDate);
 
-      var mainCity = document.createElement("h2");
-      mainCity.textContent = city + " " + fullDate;
-      currentForecast.append(mainCity);
+      cityCurrent.textContent = city + " " + fullDate;
     });
 }
 
@@ -62,22 +66,33 @@ function fetchWeather(lat, lon) {
       var emoji = data.current.weather[0].icon;
       console.log(emoji);
 
-      var mainEmoji = document.createElement("h5");
-      mainEmoji.textContent =
-        "http://openweathermap.org/img/wn/" + emoji + ".png";
-      currentForecast.append(mainEmoji);
+      $("#emojiCurrent").attr(
+        "src",
+        "http://openweathermap.org/img/wn/" + emoji + ".png"
+      );
 
-      var mainTemp = document.createElement("h5");
-      mainTemp.textContent = "Temp: " + temp + "°F";
-      currentForecast.append(mainTemp);
+      tempCurrent.textContent = "Temp: " + temp + "°F";
 
-      var mainWind = document.createElement("h5");
-      mainWind.textContent = "Wind Speed: " + wind + " MPH";
-      currentForecast.append(mainWind);
+      windCurrent.textContent = "Wind Speed: " + wind + " MPH";
 
-      var mainHumidity = document.createElement("h5");
-      mainHumidity.textContent = "Humidity: " + humidity + "%";
-      currentForecast.append(mainHumidity);
+      humidityCurrent.textContent = "Humidity: " + humidity + "%";
+    });
+}
+
+function fiveDay(lat, lon) {
+  var fiveDayForecast =
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&appid=e757412b6a4d63da3a66b29d23f46628";
+  console.log(fiveDayForecast);
+  fetch(fiveDayForecast)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
     });
 }
 
@@ -89,6 +104,20 @@ function handleFormSubmit(e) {
   fetchCoordinates(input);
 }
 
+function handlePreSetClick(e) {
+  var cityPre = this.value;
+
+  console.log(cityPre);
+
+  fetchCoordinates(cityPre);
+}
+
 // Event Handlers
 
 userForm.addEventListener("submit", handleFormSubmit);
+
+for (let i = 0; i < preSet.length; i++) {
+  preSet[i].addEventListener("click", handlePreSetClick);
+}
+
+fetchCoordinates("Denver");

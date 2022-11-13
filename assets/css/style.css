@@ -1,0 +1,26 @@
+#current-forecast {
+  border: 4px solid black;
+  margin: 3px;
+  border-radius: 15px;
+  background-color: hsl(165, 2%, 56%);
+}
+.card {
+  background-color: black !important;
+  color: lightblue !important;
+  border: 3px solid lightblue !important;
+}
+.btnSearch {
+  background-color: lightblue !important;
+  border: 2px solid black !important;
+  color: black !important;
+}
+.preSet {
+  color: lightblue !important;
+}
+h1 {
+  color: lightblue;
+}
+.subHeader {
+  text-align: center;
+  color: black;
+}
