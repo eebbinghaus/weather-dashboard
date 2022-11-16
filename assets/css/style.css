@@ -3,7 +3,13 @@
   margin: 3px;
   border-radius: 15px;
   background-color: hsl(165, 2%, 56%);
+  min-height: 500px;
 }
+
+.card-body {
+  min-width: 200px !important;
+}
+
 .card {
   background-color: black !important;
   color: lightblue !important;

@@ -28,84 +28,23 @@
                 class="form-control"
                 id="user-input"
                 aria-describedby="userInput"
+                onkeyup="manage(this)"
               />
             </div>
 
             <button
+              id="subButton"
               type="submit"
               class="btn btn-primary btnSearch"
               style="width: 100%"
+              disabled="disabled"
             >
               Search
             </button>
           </form>
           <hr />
-          <section class="col">
-            <div class="col">
-              <button
-                id="miami"
-                type="button"
-                class="preSet btn btn-dark mb-2"
-                style="width: 100%"
-                value="Miami"
-              >
-                Miami
-              </button>
-              <button
-                id="cheyenne"
-                type="button"
-                class="preSet btn btn-dark mb-2"
-                style="width: 100%"
-                value="Cheyenne"
-              >
-                Cheyenne
-              </button>
-              <button
-                id="sanDiego"
-                type="button"
-                class="preSet btn btn-dark mb-2"
-                style="width: 100%"
-                value="San Diego"
-              >
-                San Diego
-              </button>
-              <button
-                id="phoenix"
-                type="button"
-                class="preSet btn btn-dark mb-2"
-                style="width: 100%"
-                value="Phoenix"
-              >
-                Phoenix
-              </button>
-              <button
-                id="chicago"
-                type="button"
-                class="preSet btn btn-dark mb-2"
-                style="width: 100%"
-                value="Chicago"
-              >
-                Chicago
-              </button>
-              <button
-                id="dallas"
-                type="button"
-                class="preSet btn btn-dark mb-2"
-                style="width: 100%"
-                value="Dallas"
-              >
-                Dallas
-              </button>
-              <button
-                id="charlotte"
-                type="button"
-                class="preSet btn btn-dark mb-2"
-                style="width: 100%"
-                value="Charlotte"
-              >
-                Charlotte
-              </button>
-            </div>
+          <section class="col preSet">
+            <div id="recent" class="col"></div>
           </section>
         </aside>
 
@@ -119,48 +58,48 @@
               <h6 id="humidityCurrent">Card title</h6>
             </div>
           </div>
-          <section>
+          <section id="fiveDay">
             <div class="row justify-content-around">
               <h3 class="subHeader">5-Day Forecast:</h3>
-              <div class="card" style="width: 12rem">
+              <div id="day1" class="card" style="width: 12rem">
                 <div class="card-body">
-                  <h5 id="dateFive">(11/12/2022)</h5>
+                  <h5 id="dateFive"></h5>
                   <img id="emojiCurrent" src="" alt="weather emoji" />
                   <h6 id="tempFive">Card title</h6>
                   <h6 id="windFive">Card title</h6>
                   <h6 id="humidityFive">Card title</h6>
                 </div>
               </div>
-              <div class="card" style="width: 12rem">
+              <div id="day2" class="card" style="width: 12rem">
                 <div class="card-body">
-                  <h3 id="cityFive"></h3>
+                  <h5 id="dateFive"></h5>
                   <img id="emojiFive" src="" alt="weather emoji" />
                   <h6 id="tempFive">Card title</h6>
                   <h6 id="windFive">Card title</h6>
                   <h6 id="humidityFive">Card title</h6>
                 </div>
               </div>
-              <div class="card" style="width: 12rem">
+              <div id="day3" class="card" style="width: 12rem">
                 <div class="card-body">
-                  <h3 id="cityFive"></h3>
+                  <h5 id="dateFive"></h5>
                   <img id="emojiFive" src="" alt="weather emoji" />
                   <h6 id="tempFive">Card title</h6>
                   <h6 id="windFive">Card title</h6>
                   <h6 id="humidityFive">Card title</h6>
                 </div>
               </div>
-              <div class="card" style="width: 12rem">
+              <div id="day4" class="card" style="width: 12rem">
                 <div class="card-body">
-                  <h3 id="cityFive"></h3>
+                  <h5 id="dateFive"></h5>
                   <img id="emojiFive" src="" alt="weather emoji" />
                   <h6 id="tempFive">Card title</h6>
                   <h6 id="windFive">Card title</h6>
                   <h6 id="humidityFive">Card title</h6>
                 </div>
               </div>
-              <div class="card" style="width: 12rem">
+              <div id="day5" class="card" style="width: 12rem">
                 <div class="card-body">
-                  <h3 id="cityFive"></h3>
+                  <h5 id="dateFive"></h5>
                   <img id="emojiFive" src="" alt="weather emoji" />
                   <h6 id="tempFive">Card title</h6>
                   <h6 id="windFive">Card title</h6>
@@ -181,23 +120,3 @@
     <script src="assets/js/script.js"></script>
   </body>
 </html>
-
-<!-- user will type into input field and then click the search 
----need to capture the input value
----need an event listener on the search button
-
-once the user clicks search i need to display the current forecast and the 5 day forecast
-
-create a button with the citys name
-
-when user clicks, will show the relevant cities Weather
-
-store the weather results in local storage 
-
-
-
-
-
-
-
--->
