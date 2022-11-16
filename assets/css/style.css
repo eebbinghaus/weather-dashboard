@@ -1,3 +1,6 @@
+
+/* Current Weather Card */
+
 #current-forecast {
   border: 4px solid black;
   margin: 3px;
@@ -5,6 +8,8 @@
   background-color: hsl(165, 2%, 56%);
   min-height: 500px;
 }
+
+/* 5-Day Forecast Cards */
 
 .card-body {
   min-width: 200px !important;
@@ -15,6 +20,22 @@
   color: lightblue !important;
   border: 3px solid lightblue !important;
 }
+
+/* Header */
+
+h1 {
+  color: lightblue;
+}
+
+/* Sub Header */
+
+.subHeader {
+  text-align: center;
+  color: black;
+}
+
+/* Button Styling */
+
 .btnSearch {
   background-color: lightblue !important;
   border: 2px solid black !important;
@@ -22,11 +43,4 @@
 }
 .preSet {
   color: lightblue !important;
-}
-h1 {
-  color: lightblue;
-}
-.subHeader {
-  text-align: center;
-  color: black;
 }

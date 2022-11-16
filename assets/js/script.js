@@ -3,7 +3,6 @@
 var userInput = document.getElementById("user-input");
 var userForm = document.getElementById("form-sbt");
 var currentForecast = document.getElementById("current-forecast");
-var preSet = document.getElementsByClassName("preSet");
 var apiKey = "e757412b6a4d63da3a66b29d23f46628";
 var cityCurrent = document.getElementById("cityCurrent");
 var tempCurrent = document.getElementById("tempCurrent");
@@ -14,6 +13,8 @@ var recent = document.getElementById("recent");
 var forecastFive = document.getElementById("fiveDay");
 
 // Functions
+
+//Function to pull data from Local Storage
 
 function pullFromLocal() {
   var data = localStorage.getItem("cities");
@@ -37,33 +38,26 @@ function pullFromLocal() {
       mostRecent = localCities[localCities.length - 1];
       fetchCoordinates(mostRecent);
       console.log(mostRecent);
+    }
 
-      for (let i = 0; i < preSet.length; i++) {
-        preSet[i].addEventListener("click", function () {
-          console.log(this.value);
-          fetchCoordinates(cityPre);
-        });
-      }
-      // recentButton.onclick = function () {
-      //   fetchCoordinates($(this).value);
-      // };
+    var preSet = document.getElementsByClassName("preSet");
+    for (let i = 0; i < preSet.length; i++) {
+      console.log(preSet[i]);
+      preSet[i].addEventListener("click", handlePreSetClick);
     }
   }
 }
-// function handlePreSetClick(e) {
-//   var cityPre = this.value;
 
-//   console.log(cityPre);
+function handlePreSetClick(e) {
+  e.preventDefault();
+  var cityPre = this.value;
 
-//   fetchCoordinates(cityPre);
-// }
+  console.log(cityPre);
 
-for (let i = 0; i < preSet.length; i++) {
-  preSet[i].addEventListener("click", function () {
-    console.log(this.value);
-    fetchCoordinates(cityPre);
-  });
+  fetchCoordinates(cityPre);
 }
+
+//Calls API with city name and returns Lat & Lon
 
 function fetchCoordinates(input) {
   var apiCall =
@@ -87,6 +81,8 @@ function fetchCoordinates(input) {
       fetchWeather(lat, lon);
       fiveDay(lat, lon);
 
+      //Gets todays date and formats the date
+
       var date = new Date();
       var day = date.getDate();
       // console.log(date);
@@ -106,6 +102,8 @@ function fetchCoordinates(input) {
         // console.log(futureDates);
       }
 
+//Writes the date to the 5-Day Forecast section in HTML
+
       function setDates() {
         var i = 0;
         $(forecastFive)
@@ -121,6 +119,8 @@ function fetchCoordinates(input) {
       setDates();
     });
 }
+
+//Calls 2nd API and returns  Current weather data using lat & lon
 
 function fetchWeather(lat, lon) {
   var dailyWeather =
@@ -156,6 +156,8 @@ function fetchWeather(lat, lon) {
     });
 }
 
+//Calls 3rd API and returns 5-Day Forecast Weather Data
+
 function fiveDay(lat, lon) {
   var fiveDayForecast =
     "https://api.openweathermap.org/data/2.5/forecast?lat=" +
@@ -188,7 +190,7 @@ function fiveDay(lat, lon) {
 
             // console.log(returnedList[i].weather[0].icon);
             // console.log(returnedList[i].dt_txt.split(" ")[0]);
-            console.log(returnedList[i].main.temp_max);
+            // console.log(returnedList[i].main.temp_max);
             // console.log(returnedList[i].wind.speed);
             // console.log(returnedList[i].main.humidity);
           }
@@ -234,6 +236,11 @@ function fiveDay(lat, lon) {
     });
 }
 
+
+//Pulls info from local storage and displays recently searched buttons
+
+var savedRecentArr = [];
+
 function handleFormSubmit(e) {
   e.preventDefault();
   var input = userInput.value;
@@ -259,6 +266,8 @@ function handleFormSubmit(e) {
   recent.appendChild(recentButton);
 }
 
+//Disables search button until user fills search input
+
 function manage(txt) {
   if ($("user-input").value == "") {
     $("#subButton").attr("disabled", "disabled");
@@ -267,8 +276,8 @@ function manage(txt) {
   }
 }
 
-var savedRecentArr = [];
-// console.log(savedRecentArr);
+
+
 
 pullFromLocal();
 
@@ -276,5 +285,4 @@ pullFromLocal();
 
 userForm.addEventListener("submit", handleFormSubmit);
 
-// form submit section
-//   need to cross reference api to see if city is legit
+
