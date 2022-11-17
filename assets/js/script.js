@@ -50,7 +50,7 @@ function pullFromLocal() {
 
 function fetchCoordinates(input) {
   var apiCall =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
     input +
     "&appid=e757412b6a4d63da3a66b29d23f46628";
 
