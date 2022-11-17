@@ -134,7 +134,7 @@ function fetchWeather(lat, lon) {
 
       $("#emojiCurrent").attr(
         "src",
-        "http://openweathermap.org/img/wn/" + emoji + ".png"
+        "https://openweathermap.org/img/wn/" + emoji + ".png"
       );
 
       tempCurrent.textContent = "Temp: " + temp + "°F";
@@ -199,7 +199,7 @@ function fiveDay(lat, lon) {
             .eq(1)
             .attr(
               "src",
-              "http://openweathermap.org/img/wn/" +
+              "https://openweathermap.org/img/wn/" +
                 returnedList[j].weather[0].icon +
                 ".png"
             );
