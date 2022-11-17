@@ -8,7 +8,7 @@ Use this weather dashboard to search cities around the world and display relevan
 
 ## Screenshot
 
-![screenshot](assets/images/eebbinghaus.github.io_work-day-scheduler_.png)
+![screenshot](./assets/images/weather-dashboard_index.html.png)
 
 ---
 

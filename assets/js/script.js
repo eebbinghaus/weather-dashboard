@@ -17,11 +17,11 @@ var forecastFive = document.getElementById("fiveDay");
 //Function to pull data from Local Storage
 
 function pullFromLocal() {
-  var data = localStorage.getItem("cities");
+  var data = localStorage.getItem("cities") || "[]";
   var localCities = JSON.parse(data);
   // console.log(localCities);
 
-  if (localStorage.length == 0) {
+  if (localCities.length == 0) {
     fetchCoordinates("Denver");
   } else {
     savedRecentArr = localCities;
