@@ -38,23 +38,12 @@ function pullFromLocal() {
       mostRecent = localCities[localCities.length - 1];
       fetchCoordinates(mostRecent);
       console.log(mostRecent);
-    }
-
-    var preSet = document.getElementsByClassName("preSet");
-    for (let i = 0; i < preSet.length; i++) {
-      console.log(preSet[i]);
-      preSet[i].addEventListener("click", handlePreSetClick);
+      recentButton.onclick = function () {
+        fetchCoordinates(this.value);
+        console.log($(this).value);
+      };
     }
   }
-}
-
-function handlePreSetClick(e) {
-  e.preventDefault();
-  var cityPre = this.value;
-
-  console.log(cityPre);
-
-  fetchCoordinates(cityPre);
 }
 
 //Calls API with city name and returns Lat & Lon
@@ -102,7 +91,7 @@ function fetchCoordinates(input) {
         // console.log(futureDates);
       }
 
-//Writes the date to the 5-Day Forecast section in HTML
+      //Writes the date to the 5-Day Forecast section in HTML
 
       function setDates() {
         var i = 0;
@@ -236,8 +225,7 @@ function fiveDay(lat, lon) {
     });
 }
 
-
-//Pulls info from local storage and displays recently searched buttons
+//Saves items into local Storage
 
 var savedRecentArr = [];
 
@@ -276,13 +264,8 @@ function manage(txt) {
   }
 }
 
-
-
-
 pullFromLocal();
 
 // Event Handlers
 
 userForm.addEventListener("submit", handleFormSubmit);
-
-
